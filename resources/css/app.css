@@ -5,7 +5,25 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer base {
+    :root {
+        --font-size: 18px;
+        --color-1: #7EE66C;
+        --color-2: #ffffff;
+        --color-1-hover: #5AB850;
+    }
+    html {
+        font-size: var(--font-size);
+    }
+
+    body {
+        font-size: var(--font-size);
+    }
 }
