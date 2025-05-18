@@ -4,16 +4,40 @@
 </style>
 <div name="menu" class="relative border-b-1 border-black">
     <div name="level-1" class='flex justify-between items-center h-[75px] px-[75px] bg-[var(--color-1)]'>
-        <a name='logo' src="/" class='flex justify-center items-center gap-[9px] cursor-pointer'>
-            <img src="{{ asset('images/logo/logo.svg') }}" alt="Логотип EpicKeys" class="w-[45px] h-[45px]">
-            <span class="font-[Anta]">EpicKeys</span>
-        </a>
-        <div name='links' class='flex justify-between gap-[40px]'>
+        <x-logo></x-logo>
+        <div name='links' class='flex justify-between items-center gap-[40px] self-stretch'>
             <x-nav-link :active="request()->is('/')">Главная</x-nav-link>
-            <x-nav-link name="level-1" :active="request()->is('catalog')"
-                onmouseenter="document.querySelector('div[name=&quot;level-2&quot;]').style.display = 'grid';">
-                Каталог игр
-            </x-nav-link>
+            <div class="group self-stretch flex justify-center items-center">
+                <x-nav-link name="level-1" :active="request()->is('catalog')">
+                    Каталог игр
+                </x-nav-link>
+                <div name="level-2"
+                    class="hidden group-hover:grid hover:grid grid-cols-4 grid-rows-1 absolute top-[100%] left-[453px] w-[850px] h-[596px] border-1 border-black bg-[var(--color-1)] z-1">
+                    <div class="col-span-1 grid border-r-1 border-black">
+                        <x-genre name="Все игры"
+                            onmouseenter="document.querySelector('span[name=&quot;genre&quot;]').innerHTML = 'Все игры';"></x-genre>
+                        @foreach ($genres as $genre)
+                            <x-genre name="{{ $genre->name }}"
+                                onmouseenter="document.querySelector('span[name=&quot;genre&quot;]').innerHTML = '{{ $genre->name }}';"></x-genre>
+                        @endforeach
+                    </div>
+                    <div class="col-span-3 flex flex-col items-center gap-[40px] px-[30px]">
+                        <span name="genre" class="title tracking-[1px]">Все игры</span>
+                        <x-image-rectangle-card name="Red Dead Redemption 2" minPrice="900"
+                            availableRegions="Аргентина, США"
+                            imagePath="{{ Storage::url('games/icons/rdr2.jpg') }}"></x-image-rectangle-card>
+                        <x-image-rectangle-card name="Red Dead Redemption 2" minPrice="900"
+                            availableRegions="Аргентина, США"
+                            imagePath="{{ Storage::url('games/icons/rdr2.jpg') }}"></x-image-rectangle-card>
+                        <x-image-rectangle-card name="Red Dead Redemption 2" minPrice="900"
+                            availableRegions="Аргентина, США"
+                            imagePath="{{ Storage::url('games/icons/rdr2.jpg') }}"></x-image-rectangle-card>
+                        <span
+                            class="flex justify-center items-center min-w-[536px] min-h-[45px] border-1 border-black bg-[var(--color-2)] tracking-[1px] cursor-pointer">Просмотреть
+                            все игры этого жанра</span>
+                    </div>
+                </div>
+            </div>
             <x-nav-link :active="request()->is('reviews')">Отзывы</x-nav-link>
         </div>
         <div class="flex justify-between items-center gap-[40px]">
@@ -55,19 +79,6 @@
                 <span>RU</span>
                 <img src="{{ asset('images/icons/profile.svg') }}" alt="Аватар" class="w-[40px] h-[40px]">
             </div>
-        </div>
-    </div>
-    <div name="level-2"
-        class="hidden grid grid-cols-4 grid-rows-1 absolute top-[100%] left-[453px] w-[850px] h-[596px] border-1 border-black bg-[var(--color-1)]"
-        onmouseleave="this.style.display = 'none'">
-        <div class="col-span-1 grid border-r-1 border-black">
-            @foreach ($genres as $genre)
-                <x-genre name="{{ $genre->name }}"
-                    onmouseenter="document.querySelector('span[name=&quot;genre&quot;]').innerHTML = '{{ $genre->name }}';"></x-genre>
-            @endforeach
-        </div>
-        <div class="col-span-3 flex flex-col items-center gap-[40px]">
-            <span name="genre" class="text-[34px] font-semibold"></span>
         </div>
     </div>
 </div>

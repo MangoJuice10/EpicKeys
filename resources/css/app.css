@@ -21,9 +21,22 @@
     }
     html {
         font-size: var(--font-size);
+        text-align: justify;
     }
 
     body {
         font-size: var(--font-size);
+        text-align: justify;
+    }
+}
+
+@layer components {
+    .title {
+        font-size: 34px;
+        font-weight: 500;
+    }
+
+    .container {
+        padding: 80px 90px;
     }
 }
