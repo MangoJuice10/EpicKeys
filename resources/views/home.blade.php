@@ -1,4 +1,5 @@
-<x-layout :genres="$genres">
+<x-layout>
+    <x-slot:title>@lang('static.webpages.home')</x-slot:title>
     <div class="flex flex-col gap-y-[20px]">
         <x-legend header="Выгодные цены"
             content="Открой

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Region extends Model
 {
+
     public function keys(): BelongsToMany
     {
         return $this->belongsToMany(Key::class);

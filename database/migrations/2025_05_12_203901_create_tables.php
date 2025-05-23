@@ -25,22 +25,22 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->text('description')->nullable();
+            $table->jsonb('description')->nullable();
             $table->string('path_to_icon', 255)->nullable();
-            $table->text('system_requirements')->nullable();
+            $table->jsonb('system_requirements')->nullable();
             $table->timestamps();
         });
 
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->unique();
+            $table->jsonb('name', 255);
             $table->string('path_to_icon', 255)->nullable();
             $table->timestamps();
         });
 
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->unique();
+            $table->jsonb('name', 255);
             $table->timestamps();
         });
 
@@ -58,8 +58,8 @@ return new class extends Migration
 
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->text('description')->nullable();
+            $table->jsonb('name', 255);
+            $table->jsonb('description')->nullable();
             $table->timestamps();
         });
 
@@ -91,7 +91,7 @@ return new class extends Migration
         Schema::create('game_editions', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->text('features')->nullable();
+            $table->jsonb('features')->nullable();
             $table->foreignIdFor(Game::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
             $table->unique(['name', 'game_id']);

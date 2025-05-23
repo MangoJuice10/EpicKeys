@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Service extends Model
 {
+
     public function keys(): HasMany
     {
         return $this->hasMany(Key::class);

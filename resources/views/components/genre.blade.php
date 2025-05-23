@@ -1,5 +1,5 @@
 @props(['name'])
-<div class="flex justify-between items-center px-[15px] cursor-pointer hover:bg-[var(--color-1-hover)]"
+<div class="flex justify-between items-center px-[15px] cursor-pointer hover:bg-[var(--color-1-hover-option)]"
     {{ $attributes }}>
     <span>{{ $name }}</span>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" class="w-[20px] h-[20px]">

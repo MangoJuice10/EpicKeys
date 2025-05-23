@@ -17,7 +17,14 @@
         --font-size: 18px;
         --color-1: #7EE66C;
         --color-2: #ffffff;
-        --color-1-hover: #5AB850;
+        --color-1-button: #2bd60c;
+        --color-1-hover-option: #5AB850;
+        --color-1-hover-button: #24a80c;
+        --color-1-active: rgb(53, 245, 19);
+        --color-1-disabled: #c2f1ba;
+        --color-border: #4d4d4d;
+        --text-color: #000000;
+        --text-color-inactive: #4d4d4d;
     }
     html {
         font-size: var(--font-size);
