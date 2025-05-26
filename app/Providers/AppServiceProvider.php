@@ -22,9 +22,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        /* Old way to share data with views
         Facades\View::composer('components.navbar.navbar', function (View $view): void
         {
             $view->with('genres', Genre::limit(10)->get());
         });
+        */
     }
 }

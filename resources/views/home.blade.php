@@ -1,25 +1,13 @@
 <x-layout>
-    <x-slot:title>@lang('static.webpages.home')</x-slot:title>
+    <x-slot:title>@lang('static.webpages.home.title')</x-slot:title>
     <div class="flex flex-col gap-y-[20px]">
-        <x-legend header="Выгодные цены"
-            content="Открой
-            доступ к тысячам игр по самым выгодным ценам. Моментальная доставка ключей,
-            широкий выбор, лёгкий поиск, проверенные продавцы, отзывы реальных покупателей. Играй без
-            ограничений —
-            начни прямо сейчас.
-            Наш сервис предлагает ключи активации для компьютерных игр по самым низким ценам на рынке. Мы
-            работаем напрямую с официальными поставщиками и издателями, что позволяет нам избегать лишних
-            наценок и предлагать вам действительно выгодные условия."
+        <x-legend header="{{__('static.webpages.home.legends.legend-1.title')}}"
+            content="{{__('static.webpages.home.legends.legend-1.description')}}"
             imagePath="{{ asset('images/home/home1.svg') }}" reverse=true></x-legend>
-        <x-legend header="Гарантия качества"
-            content="Только
-                    проверенные ключи от офциальных поставщиков. Без рисков, без сюрпризов — каждая покупка защищена,
-                    каждый ключ рабочий. Ты выбираешь — мы гарантируем.
-                    У нас вы найдете огромный выбор игр - от новинок до классики, от популярных ААА-тайтлов до редких
-                    инди-проектов. Все ключи полностью лицензионные и активируются официальными способами через Steam,
-                    Epic Games, EA App и другие платформы."
+        <x-legend header="{{__('static.webpages.home.legends.legend-2.title')}}"
+            content="{{__('static.webpages.home.legends.legend-2.description')}}"
             imagePath="{{ asset('images/home/home2.svg') }}"></x-legend>
-        <x-legend header="Море сервисов"
-            content="Не ограничивайте себя одной платформой! Наш сервис предлагает лицензионные ключи активации для всех популярных цифровых магазинов и игровых сервисов. Покупаешь игры не только в Steam? Это не проблема — в нашем каталоге ты найдешь ключи для всех основных платформ: EA App (ранее Origin), Epic Games Store, GOG.com, PlayStation Network, Xbox Live, Rockstar Games Launcher, Ubisoft Connect, Microsoft Store"
+        <x-legend header="{{__('static.webpages.home.legends.legend-3.title')}}"
+            content="{{__('static.webpages.home.legends.legend-3.description')}}"
             imagePath="{{ asset('images/home/home3.svg') }}" reverse=true></x-legend>
 </x-layout>

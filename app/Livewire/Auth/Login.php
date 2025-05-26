@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Auth;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -17,18 +19,28 @@ class Login extends Component
     {
         return [
             'email' => 'required|email',
-            'password' => 'required|min:8',
+            'password' => 'required',
         ];
     }
 
     public function login()
     {
-        $this->validate();
+        $credentials = $this->validate();
+        if (!Auth::attempt($credentials)) {
+            throw ValidationException::withMessages([
+                'password' => [__('auth.failed')],
+            ]);
+        }
+
+        request()->session()->regenerate();
+        $this->dispatch('user-login-success', user: Auth::user());
+
+        return redirect()->route('home');
     }
 
     public function render()
     {
         return view('livewire.auth.login')
-            ->title(__('static.webpages.login'));
+            ->title(__('static.webpages.login.title'));
     }
 }

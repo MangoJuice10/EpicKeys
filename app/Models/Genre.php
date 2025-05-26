@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Genre extends Model
 {
+    protected $casts = [
+        'name' => 'json',
+        'description' => 'json'
+    ];
+
     public function name(): Attribute
     {
         return Attribute::make(

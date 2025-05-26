@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
@@ -31,12 +33,17 @@ class Register extends Component
 
     public function register()
     {
-        $this->validate();
+        $attributes = $this->validate();
+        $user = User::create($attributes);
+        $this->dispatch('user-register-success', user: $user);
+        Auth::login($user);
+        $this->dispatch('user-login-success', user: $user);
+        return redirect()->route('home');
     }
 
     public function render()
     {
         return view('livewire.auth.register')
-            ->title(__('static.webpages.register'));
+            ->title(__('static.webpages.register.title'));
     }
 }

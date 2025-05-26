@@ -33,14 +33,14 @@ return new class extends Migration
 
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->jsonb('name', 255);
+            $table->string('name', 255);
             $table->string('path_to_icon', 255)->nullable();
             $table->timestamps();
         });
 
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->jsonb('name', 255);
+            $table->jsonb('name');
             $table->timestamps();
         });
 
@@ -58,7 +58,7 @@ return new class extends Migration
 
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
-            $table->jsonb('name', 255);
+            $table->jsonb('name');
             $table->jsonb('description')->nullable();
             $table->timestamps();
         });
